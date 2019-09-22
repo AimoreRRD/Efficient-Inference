@@ -30,26 +30,27 @@ class_dict = {1:'Company',
 class Net(nn.Module):
     def __init__(self, EMBED_DIM, CLASS_DIM):
         super(Net, self).__init__()
-        self.number_neurons = 1000
-        self.fc1 = nn.Sequential(nn.Linear(EMBED_DIM, self.number_neurons),
-                                 nn.BatchNorm1d(self.number_neurons))
-        self.fc2 = nn.Sequential(nn.Linear(self.number_neurons, self.number_neurons),
+        self.number_neurons = 500
+        self.fc1 = nn.Linear(EMBED_DIM, self.number_neurons)
+
+        self.fc2 = nn.Sequential(nn.BatchNorm1d(self.number_neurons),
+                                 nn.Linear(self.number_neurons, self.number_neurons),
+                                 nn.Dropout(0.3, inplace=True),
+
                                  nn.BatchNorm1d(self.number_neurons),
-                                 nn.Dropout(0.3, inplace=True))
-        self.fc3 = nn.Sequential(nn.Linear(self.number_neurons, self.number_neurons),
-                                 nn.BatchNorm1d(self.number_neurons),
-                                 nn.Dropout(0.3, inplace=True))
-        self.fc4 = nn.Sequential(nn.Linear(self.number_neurons, self.number_neurons),
-                                 nn.BatchNorm1d(self.number_neurons),
-                                 nn.Dropout(0.3, inplace=True))
-        self.fc5 = nn.Sequential(nn.Linear(self.number_neurons, CLASS_DIM))
+                                 nn.Linear(self.number_neurons, self.number_neurons),
+                                 nn.Dropout(0.3, inplace=True)
+                                 )
+
+        self.fc3 = nn.Sequential(
+            nn.BatchNorm1d(self.number_neurons),
+            nn.Linear(self.number_neurons, CLASS_DIM)
+        )
 
     def forward(self, x):
         x = F.leaky_relu(self.fc1(x))
         x = F.leaky_relu(self.fc2(x))
-        x = F.leaky_relu(self.fc3(x))
-        x = F.leaky_relu(self.fc4(x))
-        x = F.softmax(self.fc5(x), dim=1)
+        x = F.softmax(self.fc3(x), dim=1)
         return (x)
 
 
