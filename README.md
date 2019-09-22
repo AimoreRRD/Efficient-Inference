@@ -23,6 +23,8 @@
 ### Train
 - Use NamePredict.ipynb
 
-### Run predict a name
+### Run predict a name (examples)
 - python run_predict_name.py run --name Jhonson Brothers 
 - python run_predict_name.py run --name Coca Cola
+- python run_predict_name.py run --name Hello
+- python run_predict_name.py run --name Streetbee
