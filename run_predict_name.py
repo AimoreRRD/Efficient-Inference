@@ -58,7 +58,7 @@ net = Net(512, 15)
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 net.to(device)
 
-net_path = 'trained_net.pt'
+net_path = 'model_Name_Predict/trained_net.pt'
 net = torch.load(net_path, map_location=torch.device('cpu'))
 net.eval()
 
