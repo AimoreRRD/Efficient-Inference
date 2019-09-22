@@ -1,4 +1,21 @@
 # NamePredict
+ This module predicts what class an arbitrary name belongs: 
+```
+1:'Company',
+2:'EducationalInstitution',
+3:'Artist',
+4:'Athlete',
+5:'OfficeHolder',
+6:'MeanOfTransportation',
+7:'Building',
+8:'NaturalPlace',
+9:'Village',
+10:'Animal',
+11:'Plant',
+12:'Album',
+13:'Film',
+14:'WrittenWork'
+```
 
 ### Install Dependencies
 - conda env create -f NP.yml --name NP
