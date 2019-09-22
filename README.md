@@ -4,7 +4,7 @@
 - conda env create -f NP.yml --name NP
 
 ### Train
-- Use NamePredict Jupyter Lab/Notebook
+- Use NamePredict.ipynb
 
 ### Run predict a name
 - python run_predict_name.py run --name Jhonson Brothers 
