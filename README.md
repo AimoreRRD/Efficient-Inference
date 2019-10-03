@@ -19,7 +19,11 @@
 
 ### Install Dependencies
 - conda env create -f NP.yml --name NP
-- pandas should be 0.24.1 and scipy 1.1.0 
+- pandas should be 0.24.1 and scipy 1.1.0
+- conda install -c conda-forge pandas_ml
+- conda install -c conda-forge matplotlib
+- conda install -c anaconda seaborn
+
 
 ### Train
 - Use NamePredict.ipynb
