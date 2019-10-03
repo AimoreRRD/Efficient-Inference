@@ -19,6 +19,7 @@
 
 ### Install Dependencies
 - conda env create -f NP.yml --name NP
+pandas should be 0.24.1 and scipy 1.1.0 
 
 ### Train
 - Use NamePredict.ipynb
